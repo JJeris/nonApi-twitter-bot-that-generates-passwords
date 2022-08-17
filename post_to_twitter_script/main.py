@@ -11,6 +11,11 @@ import generate_password_script.password_generator as passgen
 
 ### Integration section
 print(passgen.generate_password(10))
+# f = open("D:\\myfiles\welcome.txt", "r")
+# print(f.read())
+
+print(f.read())
+
 
 
 
