@@ -1,1 +1,1 @@
-from .password_gen import *
+from .password_generator import *

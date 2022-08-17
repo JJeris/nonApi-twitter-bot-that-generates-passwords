@@ -35,13 +35,15 @@ which he wishes to generate.
 In addition to that, it also validates that the given length is not equal or less than 0.
 
 """
-def add_length():
-    length = int(input(">Input "))
+def add_length(length):
+    # length = int(input(">Input "))
     if length <= 0:
+        # raise Exception("THROWN ERROR: Entered number cannot be less or equal to ZERO.")
+        raise TypeError("Length cannot be less or equal to ZERO")
     # while length <= 0:
-        print("Input invalid")
+        # print("Input invalid")
         # NEEDS TO THROW AN ERROR
-        length = int(input(">Input "))
+        # length = int(input(">Input "))
     return length
     # print(length)
 
@@ -62,8 +64,8 @@ random number is chosen in the borders of 1-length_of_the_given_list. The passwo
 gets appended with the character, whose index in the given list equals the randomly chosen number.
 
 """
-def generate_password():
-    password_length = add_length()
+def generate_password(length):
+    password_length = add_length(length)
     password_output = ""
     for i in range(0, password_length):
         x = random.randrange (1, 5)
