@@ -1,6 +1,6 @@
 """
 password_gen.py
-Made by JJeris
+Made by JJeris, https://github.com/JJeris
 
 About:
 
@@ -15,8 +15,8 @@ which means theyll be even harder to crack and or guess by malicious parties.
 """
 Used libraries
 """
-
 import random
+
 """
 Assets - lists of characters that will be used in the generation of a password.
 """
@@ -26,18 +26,16 @@ NUMBERS = "1234567890"
 SYMBOLS = "`~!@#$%^&*()_+-={|[]\:;<>?,./:"
 
 
-
-
 """
+generate_length()
 
+Aboutme:
+This functions generates an integer, that is in the range of: 20 <= x <= 252.
+It is used inside the generate_password() function.
 """
 def generate_length():
     length = random.randint(20, 253)
     return length
-
-
-
-
 
 """
 add_length()
@@ -51,15 +49,8 @@ In addition to that, it also validates that the given length is not equal or les
 """
 def add_length(length):
     if length <= 0 or length > 252:
-        # raise Exception("THROWN ERROR: Entered number cannot be less or equal to ZERO.")
-        raise TypeError("Length cannot be less or equal to 0 or more than 252")
-    # while length <= 0:
-        # print("Input invalid")
-        # NEEDS TO THROW AN ERROR
-        # length = int(input(">Input "))
+        raise TypeError("Length cannot be less or equal to 0 or more than 252 characters.")
     return length
-    
-
 
 """
 generate_password()
@@ -96,8 +87,3 @@ def generate_password():
             x4 = random.randrange(len(SYMBOLS))
             password_output += SYMBOLS[x4]
     return password_output
-
-"""
-To test this code, simply comment out the next line.
-"""
-# generate_length()

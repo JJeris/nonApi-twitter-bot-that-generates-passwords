@@ -7,7 +7,18 @@ sys.path.append(".")
 import generate_password_script.password_generator as passgen
 import generate_tweet_script.generate_tweet as tweetgen
 
+'''
+https://www.youtube.com/watch?v=9wC5mFkcqqg&ab_channel=CreepyD
+A good video that shows how to automate using Selenium
 
+Need:
+-How to shcedule it
+-How to run it in the background
+-Rework the bot and make a V2.0 after this, V1.0 is finished.
+
+Further plans:
+-make a trading bot using schedule, evaluation and Selenium. Good luck :D
+'''
 
 ### Functions section
 def retrieve_username_password():
