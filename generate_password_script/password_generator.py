@@ -25,6 +25,20 @@ LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz"
 NUMBERS = "1234567890"
 SYMBOLS = "`~!@#$%^&*()_+-={|[]\:;<>?,./:"
 
+
+
+
+"""
+
+"""
+def generate_length():
+    length = random.randint(20, 253)
+    return length
+
+
+
+
+
 """
 add_length()
 
@@ -36,16 +50,15 @@ In addition to that, it also validates that the given length is not equal or les
 
 """
 def add_length(length):
-    # length = int(input(">Input "))
-    if length <= 0:
+    if length <= 0 or length > 252:
         # raise Exception("THROWN ERROR: Entered number cannot be less or equal to ZERO.")
-        raise TypeError("Length cannot be less or equal to ZERO")
+        raise TypeError("Length cannot be less or equal to 0 or more than 252")
     # while length <= 0:
         # print("Input invalid")
         # NEEDS TO THROW AN ERROR
         # length = int(input(">Input "))
     return length
-    # print(length)
+    
 
 
 """
@@ -64,7 +77,8 @@ random number is chosen in the borders of 1-length_of_the_given_list. The passwo
 gets appended with the character, whose index in the given list equals the randomly chosen number.
 
 """
-def generate_password(length):
+def generate_password():
+    length = generate_length()
     password_length = add_length(length)
     password_output = ""
     for i in range(0, password_length):
@@ -86,5 +100,4 @@ def generate_password(length):
 """
 To test this code, simply comment out the next line.
 """
-# generate_password()
-# print(generate_password())
+# generate_length()
