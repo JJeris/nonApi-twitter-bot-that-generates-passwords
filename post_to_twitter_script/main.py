@@ -32,6 +32,8 @@ import time
 Notes to developer
 https://www.youtube.com/watch?v=9wC5mFkcqqg&ab_channel=CreepyD
 A good video that shows how to automate using Selenium
+DONE!!!!!!
+
 
 Need:
 -How to shcedule it
@@ -41,6 +43,15 @@ Need:
 Further plans:
 -make a trading bot using schedule, evaluation and Selenium. Good luck :D
 '''
+### Constants
+email_input_xpath = "//*[@id='layers']/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[5]/label/div/div[2]/div/input"
+next_button = "//*[@id='layers']/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[6]"
+password_input_xpath = "//*[@id='layers']/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div[3]/div/label/div/div[2]/div[1]/input"
+login_button = "//*[@id='layers']/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div[1]/div/div/div"
+text_field = "//*[@id='react-root']/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/div/label/div[1]/div/div/div/div/div/div[2]/div/div/div/div"
+post = '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[3]/div/div/div[2]/div[3]'
+
+
 
 ### Functions section
 def retrieve_username_password():
@@ -56,54 +67,36 @@ def retrieve_username_password():
     return username, password
 
 
-
-
-
-### Integration section
-
-
 ### Demo
 try:
+    
+    ### Retrieving data 
     print("#######Try?catch block has started#######\n")
     username, password = retrieve_username_password()
-    # print(email,"|DIVIDE|", password)
-    # password = passgen.generate_password()
     tweet = tweetgen.generate_tweet(password = passgen.generate_password())
-    # print(tweet)
-    
     
     ### Automation 
-    driver = webdriver.Chrome()
-    # options = Options()
-    # options.add_argument("start-maximized")
     
-    # driver = webdriver.Chrome(options=options)
+    options = Options()
+    options.add_argument("start-maximized")
+    driver = webdriver.Chrome(options=options)
     driver.get('https://twitter.com/i/flow/login')
     
-    
-    email_input_xpath = "//*[@id='layers']/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[5]/label/div/div[2]/div/input"
-    next_button = "//*[@id='layers']/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[6]"
-    password_input_xpath = "//*[@id='layers']/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div[3]/div/label/div/div[2]/div[1]/input"
-    login_button = "//*[@id='layers']/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div[1]/div/div/div"
-    # tweet_create_button = "//*[@id='react-root']/div/div/div[2]/header/div/div/div/div[1]/div[3]/a"
-    # text_field = "//*[@id='react-root']/div/div/div[2]/main/div/div/div[3]/div/div/div[1]/div/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/div/label/div[1]/div/div/div/div/div/div[2]/div"
-    text_field = "//*[@id='react-root']/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/div/label/div[1]/div/div/div/div/div/div[2]/div/div/div/div"
-    
+    ### Execution
+    # Add waiters, that wait till the pages have loaded. Otherwise the code will fail.
     time.sleep(5)
     driver.find_element("xpath", email_input_xpath).send_keys(username)
     time.sleep(0.5)
     driver.find_element("xpath", next_button).click()
     time.sleep(0.5)
     driver.find_element("xpath", password_input_xpath).send_keys(password)
-    time.sleep(0.5)
-    driver.find_element("xpath", login_button).click()
     time.sleep(1)
-    # driver.find_element("xpath", tweet_create_button).click()
+    driver.find_element("xpath", login_button).click()
+    time.sleep(5)
     driver.find_element("xpath", text_field).send_keys(tweet)
     time.sleep(0.5)
-    # driver.find_element("xpath", text_field).send_keys(tweet)
+    driver.find_element("xpath", post).click()
     time.sleep(0.5)
-    time.sleep(6)
     driver.close()
 finally:
     print("\n#######Try/Catch block has finished succesfully#######")

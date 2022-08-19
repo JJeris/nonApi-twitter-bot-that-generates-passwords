@@ -23,8 +23,8 @@ Assets - lists of characters that will be used in the generation of a password.
 UPPERCASE_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz"
 NUMBERS = "1234567890"
-SYMBOLS = "`~!@#$%^&*()_+-={|[]\:;<>?,./:"
-
+SYMBOLS = "`~!$%^&*()_+-={|[]\:;<>?,./:"
+# removed # and @
 
 """
 generate_length()
