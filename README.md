@@ -6,11 +6,11 @@ This is a twitter bot that: generates a password, posts its on its own, personal
 
 todo:
 
-  -schedule will be added
+    -schedule will be added
   
-  -running in the background will be addded
+    -running in the background will be addded
   
-  -standardized codebase to PEP8 will be done
+    -standardized codebase to PEP8 will be done
 
 
 You can view the project in action at @JJerisGenPwBot twitter.
