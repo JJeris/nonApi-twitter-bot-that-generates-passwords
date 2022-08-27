@@ -5,6 +5,7 @@ This is a twitter bot that: generates a password, posts its on its own, personal
 ## Note: Project is unifinished.
 
 todo:
+
 -schedule will be added
 -running in the background will be addded
 -standardized codebase to PEP8 will be done
