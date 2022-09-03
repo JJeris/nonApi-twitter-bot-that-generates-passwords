@@ -87,3 +87,6 @@ def generate_password():
             x4 = random.randrange(len(SYMBOLS))
             password_output += SYMBOLS[x4]
     return password_output
+
+
+

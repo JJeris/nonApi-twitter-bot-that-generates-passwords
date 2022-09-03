@@ -37,7 +37,7 @@ DONE!!!!!!
 
 
 Need:
--How to shcedule it
+-How to schedule it
 -How to run it in the background
 -Rework the bot and make a V2.0 after this (PEP8), V1.0 is finished.
 
