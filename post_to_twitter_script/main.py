@@ -20,6 +20,7 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
+# from pyvirtualdisplay import Display
 ## Selenium import
 
 
@@ -72,14 +73,17 @@ try:
     
     ### Retrieving data 
     print("#######Try?catch block has started#######\n")
-    username, password = retrieve_username_password()
+    username, login_password = retrieve_username_password()
+    
     tweet = tweetgen.generate_tweet(password = passgen.generate_password())
     
     ### Automation 
-    
+    # display = Display(visible=0, size=(800, 600))
+    # display.start()
     options = Options()
     options.add_argument("start-maximized")
-    driver = webdriver.Chrome(options=options)
+    # driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome()
     driver.get('https://twitter.com/i/flow/login')
     
     ### Execution
@@ -89,10 +93,10 @@ try:
     time.sleep(0.5)
     driver.find_element("xpath", next_button).click()
     time.sleep(0.5)
-    driver.find_element("xpath", password_input_xpath).send_keys(password)
+    driver.find_element("xpath", password_input_xpath).send_keys(login_password)
     time.sleep(1)
     driver.find_element("xpath", login_button).click()
-    time.sleep(5)
+    time.sleep(10)
     driver.find_element("xpath", text_field).send_keys(tweet)
     time.sleep(0.5)
     driver.find_element("xpath", post).click()
