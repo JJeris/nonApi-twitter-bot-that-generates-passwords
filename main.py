@@ -63,10 +63,11 @@ class Main():
         # display.start()
         options = Options()
         options.add_argument("start-maximized")
-        
-try:
-    print("#######Try?catch block has started#######\n")
-    main = Main()
-    main.send_tweet()
-finally:
-    print("\n#######Try/Catch block has finished succesfully#######")
+     
+if __name__ == '__main__':   
+    try:
+        print("#######Try?catch block has started#######\n")
+        main = Main()
+        main.send_tweet()
+    finally:
+        print("\n#######Try/Catch block has finished succesfully#######")
