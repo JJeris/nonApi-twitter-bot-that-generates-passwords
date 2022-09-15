@@ -1,3 +1,8 @@
+"""
+https://developer.twitter.com/en/docs/platform-overview
+Note to develpoper: Use the twitter API to improve this project.
+"""
+
 from selenium import webdriver
 # from webdriver_manager.chrome import ChromeDriverManager
 # from selenium.webdriver.common.keys import Keys
