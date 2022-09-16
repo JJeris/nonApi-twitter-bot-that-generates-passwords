@@ -8,6 +8,7 @@ todo:
 - schedule will be added
 - running in the background will be addded
 - standardized codebase to PEP8 will be done DONE
+- migrate to using twtiier API
 
 
 You can view the project in action at @JJerisGenPwBot twitter.
